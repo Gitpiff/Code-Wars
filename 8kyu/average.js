@@ -1,8 +1,11 @@
 //Find the average num of an array
 
 function average(array) {
-    let arraySum = sum(array);
-    return arraySum / array.length;
+    if(!array || array.length === 0) {
+      return 0
+    }
+    let arraySum = array.reduce((acc, c) => acc + c, 0)
+    return arraySum / array.length
   };
 
-  console.log(average([1,2,3]))
+  console.log(average([]))
