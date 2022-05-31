@@ -3,20 +3,20 @@
 
 
 //Solution 1
-// function sortedSquaredArray(array) {
-//     //Define a variable that will store a new array, initialize it at 0
-//     sortedSquares = new Array(array.length).fill(0)
+function sortedSquaredArray(array) {
+    //Define a variable that will store a new array, initialize it at 0
+    sortedSquares = new Array(array.length).fill(0)
 
-//     //Start a for loop, iterate through the array, take the value at every index, take the sqaure of it, insert it in the
-//     //sortedSquares array and sort it
-//     for(let i = 0; i < array.length; i ++){
-//         let value = array[i]
-//         sortedSquares[i] = value * value
-//     }
+    //Start a for loop, iterate through the array, take the value at every index, take the sqaure of it, insert it in the
+    //sortedSquares array and sort it
+    for(let i = 0; i < array.length; i ++){
+        let value = array[i]
+        sortedSquares[i] = value * value
+    }
 
-//     sortedSquares.sort((a, b) => a - b)
-//     return sortedSquares
-// }
+    sortedSquares.sort((a, b) => a - b)
+    return sortedSquares
+}
 
 //console.log(sortedSquaredArray([5,3,7,11]))
 
