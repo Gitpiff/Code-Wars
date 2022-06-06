@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Cart</title>
+</head>
+    <body>
+        <!-- Make a Table 
+        Check how many rows, table headers -"th" and  data cells -table data "td"- the table needs -->
+        <table>
+        <!-- Include the caption tag so it's semantically correct -->
+            <caption>Item Cart</caption>
+
+        <!-- Create a table head "thead" to keep the code semantically correct -->
+            <thead>
+                <tr>
+                    <!-- Scope attribute allows us to "tell" the browser if this is a heading for a column or a row -->
+                    <th scope="col">Item</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+            </thead>    
+
+        <!-- Create the table body tag -tbody -->
+            <tbody>
+                <tr>
+                    <th scope="row">Banana</th>
+                    <td>$1.00</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th scope="row">Burger</th>
+                    <td>$6.90</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cookie</th>
+                    <td>$4.20</td>
+                    <td>4</td>
+                </tr>
+                
+                <!-- Create the table footing -tfoot- -->
+                <tfoot>
+                    <tr>
+                        <th scope="row">Total</th>
+                        <td>$12.10</td>
+                        <td>8</td>
+                    </tr>
+                </tfoot>
+            </tbody>
+        </table>
+    </body>
+</html>

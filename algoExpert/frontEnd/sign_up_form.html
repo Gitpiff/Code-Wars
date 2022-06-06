@@ -1,0 +1,53 @@
+<!-- 
+Implement a sign-up form in HTML with the following six input fields, each with an appropiate label;
+1.-Username; a required text input field
+2.-Password; a required password input field
+3.-Email; a required email input field
+4.-Phone Number; an optional telephone input field
+5.-Date of birth; an optional date-picker input field
+6.-I agree to the TOS; a required checkbox input field
+
+There should also be a Sign up Buttont the bottom of the form. When clicked on(and if all requirements have been filled) 
+the button should submit the form using default browser behavior
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sign up Form</title>
+ </head>
+ <body>
+     <!-- 
+     Make form with 6 inputs
+     Make labels for each input
+     Specify each input with the required type
+     Make sure to implement the required boolean when necessary  
+     -->
+     <form>
+         <label for="username">Username:</label>
+         <input id="username" type="text" required />
+       
+         <label for="password">Password:</label>
+         <input id="password" type="password" required>
+       
+         <label for="email">Email:</label>
+         <input id="email" type="email" required>
+       
+         <label for="phone">Phone Number:</label>
+         <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+       
+         <label for="birthday">Date of Birth:</label>
+         <input id="birthday" type="date">
+       
+         <label for="tos">I agree to the TOS</label>
+         <input id="tos" type="checkbox" required>
+ 
+         
+         <button>Sign Up</button>
+     </form>
+ </body>
+ </html>
+
