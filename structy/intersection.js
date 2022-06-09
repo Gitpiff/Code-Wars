@@ -22,17 +22,17 @@
 
 
 const intersection = (a, b) => {
-    //create a result array
+   //declare a result var containing an empty array
     const result = []
     //create a set of items
     const items = new Set();
-    //add items to the set
+    //add items to the set using a for of loop
     for(let item of a){
         items.add(item)
     }
     //iterate through second array, if an element of array 2 is included in the set, push the element to the result array
     for(let ele of b){
-        if(b.includes(ele)){
+        if(items.has(ele)){
             result.push(ele)
         }
     }
@@ -42,4 +42,4 @@ const intersection = (a, b) => {
 
 }
 
-console.log(intersection([1,2,3], [1,2]))
+console.log(intersection([1,2,3], [1,2,3,7]))
