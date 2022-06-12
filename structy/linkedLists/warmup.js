@@ -1,6 +1,6 @@
 class Node {
     constructor(val) {
-        this.value = val;
+        this.val = val;
         this.next = null;
     }
 }
@@ -9,3 +9,26 @@ const b = new Node ("B");
 const c = new Node ("C");
 const d = new Node ("D");
 const e = new Node ("E");
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+// const printLinkedList = (head) => {
+//     let current = head;
+//     while(current !== null) {
+//         console.log(current.val);
+//         current = current.next;
+//     }
+// }
+
+//Same function but written recursively
+const printLinkedList = (head) => {
+    if (head === null) return;
+    console.log(head.val);
+    printLinkedList(head.next);
+}
+
+
+printLinkedList(a)
