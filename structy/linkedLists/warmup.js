@@ -1,3 +1,9 @@
+//First node in a linked list is referred to as a "head", last node "tail"
+//Ordered data structure
+//Unlike an array, it's elements don't have to be stored contiguously
+
+
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -15,15 +21,18 @@ b.next = c;
 c.next = d;
 d.next = e;
 
+// A -> B -> C -> D -> E -> NULL
+
 // const printLinkedList = (head) => {
 //     let current = head;
 //     while(current !== null) {
 //         console.log(current.val);
-//         current = current.next;
+//         current = current.next;   //After printing current make sure to actualize
+//                                  // the position of current
 //     }
 // }
 
-//Same function but written recursively
+//Same function but written recursively -calling the function within itself makes it recursive-
 const printLinkedList = (head) => {
     if (head === null) return;
     console.log(head.val);
