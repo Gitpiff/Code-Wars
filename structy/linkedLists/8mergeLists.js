@@ -31,6 +31,8 @@ w.next = x;
 x.next = y;
 
 const mergeLists = (head1, head2) => {
+    //need current pointers for both lists
+    //We need to find out first which head contains the smallest value, so we can use it as our starting point
     
 
 }
