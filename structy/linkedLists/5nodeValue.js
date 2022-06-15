@@ -35,7 +35,7 @@ const getNodeValue = (head, index) => {
     }
 
     return null
-
+}
 
 // n = number of nodes
 // Time: O(n)
