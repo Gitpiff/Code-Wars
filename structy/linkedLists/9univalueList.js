@@ -18,19 +18,40 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-const isUnivalueList = (head) => {
-    //declare one pointer
-    let current =  head;
-    //iterate through the list, using a while loop
-    while (current !== null) {
-        //check the value of current
-        if(current.val === current.next.val) {
-            return true
-        }
-        current = current.next;
-    }
 
+//Iterative Solution
+// const isUnivalueList = (head) => {
+//     //declare one pointer
+//     let current =  head;
+//     //iterate through the list, using a while loop
+//     while (current !== null) {
+//         //check the value of current
+//         if(current.val !== head.val) {
+//             return false
+//         }
+//         current = current.next;
+//     }
+
+//     return true
+// }
+
+//Time: O(n)
+//Space: O(1)
+
+
+//Recursive
+const isUnivalueList = (head, prevVal = null) => {
+    if(head === null) return true;
+    if(prevVal === null || prevVal === head.val) {
+        return isUnivalueList(head.next, head.val);
+    } else {
+        return false
+    }
 }
+
+//Time: O(n)
+//Space: O(n)
+
 
 
 console.log(isUnivalueList(a))
