@@ -8,7 +8,7 @@ class Node {
     }
 }
 const a = new Node ("A");
-const b = new Node ("A");
+const b = new Node ("C");
 const c = new Node ("C");
 const d = new Node ("C");
 const e = new Node ("C");
@@ -21,26 +21,28 @@ d.next = e;
 const longestStreak = (head) => {
     //Declare a Max streak variable
     let maxStreak = 0;
-    //Declare a current streak var
+    //Declare a current streak var -track current streak-
     let currentStreak = 0;
-    //check for values that are the same, declare a var that will store the previous value, declare it as an empty var
-    let prevVal = "";
+    //check for values that are the same, declare a var that will store the previous value, declare it as an empty var -track last value-
+    let prevVal = null;
     // //Declare a pointer that will point at the current head of the list
     let current = head;
 
     //Iterate -while loop-, assign the first value of the list's head to be the value of prevVal
     while (current !== null) {
-        prevVal = current.val;
-        if(head.val === prevVal) {
+        if(current.val === prevVal) {
             currentStreak += 1;
+        } else {
+            currentStreak = 1 //starts a new streak at 1
         }
+
+        if (currentStreak > maxStreak) {
+            maxStreak = currentStreak
+        }
+
+        prevVal = current.val;
         current = current.next
     }
-
-    if (currentStreak > maxStreak) {
-        maxStreak = currentStreak
-    }
-    //add 1 to the current-streak, also we need a conditional if the current streak is greater than the max-streak then we'll reassign the value of the current streak to the max streak
 
     return maxStreak
 }
