@@ -19,6 +19,25 @@ c.next = d;
 d.next = e;
 
 const insertNode = (head, value, index) => {
+    //need a variable to act as an index pointer, another var to act as the current value,  also a while loop, with each iteration this var will += 1 incrementing the index num to the next value
+    //if the index -1 === count var, we'll insert a new node by directing the prev node to the new one, and the new one to the current.next.next
+    //we do index -1 because we need to stop a value before the index === count to insert the new node
+    let count = 0;
+    let current = head;
+
+    while (current !== null) {
+        if (count === index - 1) {
+            const temp = current.next;
+            current.next = new Node(value);
+            current.next.next = temp;
+        }
+
+        count += 1
+        current = current.next
+    }
+
+    return current
+
 
 }
 

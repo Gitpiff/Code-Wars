@@ -21,39 +21,39 @@ d.next = e;
 
 
 //Iterative Solution
-// const removeNode = (head, target) => {
-//     //In the case of deleting the first node of the list, we need to do it so explicitly
-//     if (head.val === target) return head.next;
-//     //reroute the node that's pointing to the target, to make it point to the node target.next
-//     //we'll need two pointers, one to track the current head, and another one to track the previous value
-//     //Declare a current head
-//     let current = head;
-//     //previous head.val
-//     let prev = null;
-//     //check if the current.val === target, then we need to point prev to current.next, skipping the current node
-//     while (current !== null) {
-//         if(current.val === target) {
-//             prev.next = current.next
-//             break;
-//         }
+const removeNode = (head, target) => {
+    //In the case of deleting the first node of the list, we need to do it so explicitly
+    if (head.val === target) return head.next;
+    //reroute the node that's pointing to the target, to make it point to the node target.next
+    //we'll need two pointers, one to track the current head, and another one to track the previous value
+    //Declare a current head
+    let current = head;
+    //previous head.val
+    let prev = null;
+    //check if the current.val === target, then we need to point prev to current.next, skipping the current node
+    while (current !== null) {
+        if(current.val === target) {
+            prev.next = current.next
+            break;
+        }
 
-//         prev = current;
-//         current = current.next;
-//     }
+        prev = current;
+        current = current.next;
+    }
 
-//     return head
-// }
+    return head
+}
 
 //Time: O(n)
 //Space: O(1)
 
 
 //Recursive Solution
-const removeNode = (head, target) => {
-    if (head === null) return null;
-    if (head.val === target) return head.next;
-    head.next = removeNode (head.next, target);
-    return head
-}
+// const removeNode = (head, target) => {
+//     if (head === null) return null;
+//     if (head.val === target) return head.next;
+//     head.next = removeNode (head.next, target);
+//     return head
+// }
 
 console.log(removeNode(a, "A"))
