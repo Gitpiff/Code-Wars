@@ -18,7 +18,14 @@ b.next = c;
 c.next = d;
 d.next = e;
 
+//Iterative Solution
 const insertNode = (head, value, index) => {
+    //If we need to insert a new node in the index 0, we need to do it explicitly
+    if (index === 0) {
+        const newHead = new Node(value);
+        newHead.next = head;
+        return newHead
+    }
     //need a variable to act as an index pointer, another var to act as the current value,  also a while loop, with each iteration this var will += 1 incrementing the index num to the next value
     //if the index -1 === count var, we'll insert a new node by directing the prev node to the new one, and the new one to the current.next.next
     //we do index -1 because we need to stop a value before the index === count to insert the new node
@@ -36,9 +43,27 @@ const insertNode = (head, value, index) => {
         current = current.next
     }
 
-    return current
-
-
+    return head;
 }
 
-console.log(insertNode(a, "V", 1))
+//Recursive Solution
+// const insertNode = (head, value, index, count =0) => {
+//     if (head === null) return null;
+
+//     if (index === 0) {
+//         const newHead = new Node(value);
+//         newHead.next = head;
+//         return newHead;
+//     }
+
+//     if (count === index -1) {
+//         const temp = head.next;
+//         head.next = new Node(value);
+//         head.next.next = temp;
+//         return head;
+//     }
+//     insertNode(head.next, value, index, count += 1);
+//     return head;
+// }
+
+console.log(insertNode(a, "V", 0))
