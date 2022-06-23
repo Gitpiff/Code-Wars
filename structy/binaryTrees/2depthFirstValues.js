@@ -3,8 +3,6 @@
 //Use the stack data structure
 //check if children exist before adding them to the stack
 
-const res = require("express/lib/response");
-
 class Node {
     constructor(val) {
         this.val = val;
