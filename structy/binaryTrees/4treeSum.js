@@ -27,24 +27,32 @@ c.right = f;
 //  / \      \
 // 4   -2     1
 
+//Iterative Solution
+// const treeSum = (root) => {
+//     //if the tree is empty, return an empty array
+//     if (root === null) return 0;
+//     //create a count var
+//     let count = 0;
+//     //create a stack
+//     const stack = [root];
+//     //iterate
+//     while (stack.length > 0) {
+//         //gets the current node
+//         const current = stack.pop();
+//         count += current.val;
+
+//         if (current.left !== null) stack.push(current.left);
+//         if (current.right !== null) stack.push(current.right);
+//     }
+
+//     return count;
+// }
+
+
+//Recursive Solution
 const treeSum = (root) => {
-    //if the tree is empty, return an empty array
-    if (root === null) return [];
-    //create a count var
-    let count = 0;
-    //create a stack
-    const stack = [root];
-    //iterate
-    while (stack.length > 0) {
-        //gets the current node
-        const current = stack.pop();
-        count += current.val;
-
-        if (current.left !== null) stack.push(current.left);
-        if (current.right !== null) stack.push(current.right);
-    }
-
-    return count;
+    if (root === null) return 0;
+    return root.val + treeSum(root.left) + treeSum(root.right)
 }
 
 console.log(treeSum(a))
