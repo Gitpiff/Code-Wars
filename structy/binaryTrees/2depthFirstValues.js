@@ -41,6 +41,7 @@ const depthFirstValues = (root) => {
     const stack = [root];
     //loop while there's elements in the stack
     while (stack.length > 0) {
+        //.pop() removes and returns the last element from an array
         const current = stack.pop();
         result.push(current.val);
 
