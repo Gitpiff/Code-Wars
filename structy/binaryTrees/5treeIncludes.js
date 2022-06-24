@@ -28,8 +28,35 @@ c.right = f;
 //  / \     \
 // d   e     f
 
+
+//Iterative Solution
+// const treeIncludes = (root, target) => {
+//     //if tree is empty
+//     if (root === null) return false;
+
+//     const queue = [root];
+//     while (queue.length > 0) {
+//         const current = queue.shift();
+//         console.log(current.val);
+//         //check if the children nodes exist before adding them to the stack
+//         if (current.val === target) return true;
+
+//         if(current.left) queue.push(current.left);
+//         if(current.right) queue.push(current.right);
+//     }
+
+//     return false;
+
+// }
+
+//Recursive Solution
 const treeIncludes = (root, target) => {
+    //check if tree is empty
+    if (root === null) return false;
+    //if the root is the target
+    if (root === target) return true;
     
+    return treeIncludes(root.left, target) || treeIncludes(root.right, target);
 }
 
 console.log(treeIncludes(a, "f"))
