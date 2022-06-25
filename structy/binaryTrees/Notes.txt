@@ -3,3 +3,5 @@ Binary Trees
 -They have at most 2 children
 -They have exactly one root, there should be only one single node without a parent Node
 -Exactly one path -series of connected Nodes we can travel through-  between the root and any Node
+-A root node has children -2max-
+-A leaf node doesn't have any children

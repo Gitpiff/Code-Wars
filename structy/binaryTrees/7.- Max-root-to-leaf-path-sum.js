@@ -29,6 +29,16 @@ c.right = f;
 // 4   -2     1
 
 const maxPathsum = (root) => {
+    //if one of the leaves has only one child
+    if (root === null) return - Infinity;
+
+    //base case if three does not contain any leaves
+    if (root.left === null && root.right === null) return root.val;
+
+    //choose the biggest value of the leaf and add the root to it
+    const maxChildPathSum = Math.max(maxPathsum(root.left), maxPathsum(root.right));
+    //return the sum of the root.val and the max value ^
+    return root.val + maxChildPathSum;
 
 }
 
