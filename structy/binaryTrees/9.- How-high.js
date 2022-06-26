@@ -30,6 +30,15 @@ c.right = f;
 // d   e     f
 
 const howHigh = (root) => {
+    //make the base case about the empty tree
+    //if a tree is empty return -1
+    if (root === null) return -1;
+    //recursive call to perform depth first search
+    const leftTreeHeight = howHigh(root.left);
+    const rightTreeHeight = howHigh(root.right);
+
+    //compare left and right looking for the highest value plus one because we need to return the height of the root node which is one
+    return 1 + Math.max(leftTreeHeight, rightTreeHeight);
 
 }
 
