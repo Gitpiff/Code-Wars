@@ -29,7 +29,21 @@ c.right = f;
 // 4   -2     1
 
 const bottomRightValue = (root) => {
+    //breadth first
+    //declare a queue
+    const queue = [root];
+    //declare a var that will store the value of the current node, declare it outside of the while loop
+    let current = null;
 
+    while (queue.length > 0) {
+        //reassign the value to the first element in the root array
+        current = queue.shift();
+
+        if (current.left !== null) queue.push(current.left);
+        if (current.right !== null) queue.push(current.right);
+    }
+
+    return current.val
 }
 
 console.log(bottomRightValue(a))
