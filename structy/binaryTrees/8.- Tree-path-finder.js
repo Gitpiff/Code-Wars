@@ -29,8 +29,41 @@ c.right = f;
 //  / \     \
 // d   e     f
 
-const pathfinder = (root, target) => {
-
+const root = new Node(0);
+let curr = root;
+for (let i = 1; i <= 6000; i += 1) {
+  curr.right = new Node(i);
+  curr = curr.right;
 }
 
-console.log(pathfinder(a, "e"))
+const pathfinder = (root, target) => {
+    const result = pathfinderHelper(root, target);
+    if (result === null) {
+        return null;
+    } else {
+        return result.reverse()
+    }
+}
+
+const pathfinderHelper = (root, target) => {
+    //if given an empty tree
+    if (root === null) return null;
+    //if the root.val is equal to the target, return an array containing the root.val
+    if (root.val === target) return [ root.val ];
+
+    const letfPath = pathfinderHelper(root.left, target);
+    if (letfPath !== null) {
+        letfPath.push(root.val);
+        return letfPath;
+    }
+
+    const rightPath = pathfinderHelper(root.right, target);
+    if (rightPath !== null) {
+       rightPath.push(root.val);
+       return rightPath;
+    }
+
+    return null;
+}
+
+console.log(pathfinder(root, 5999))
