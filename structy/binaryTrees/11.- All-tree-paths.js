@@ -29,8 +29,31 @@ c.right = f;
 //  / \      \
 // 4   -2     1
 
+//Recursive Solution
 const allTreePaths = (root) => {
+    //if we have an empty tree -root is null-
+    if (root === null) return [];
+    //base case -leaf node-
+    //this wil mean root is a leaf
+    if (root.left === null && root.right === null) return [ [root.val]];
 
+    //to add the current root.val to the front of each subpath
+    const paths = [];
+    //recursively call on your left and right children
+    const leftSubPath = allTreePaths(root.left);
+    //iterate through every element
+    for (let subpath of leftSubPath) {
+        //push into paths the current value of root and the values of the subpath
+        paths.push([root.val, ...subpath]);
+    }
+    const rightSubPath = allTreePaths(root.right);
+    for (let subpath of rightSubPath) {
+        //push into paths the current value of root and the values of the subpath
+        paths.push([root.val, ...subpath]);
+    }
+
+
+    return paths;
 }
 
 console.log(allTreePaths(a))
