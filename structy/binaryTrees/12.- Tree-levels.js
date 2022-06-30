@@ -63,7 +63,7 @@ const treeLevels = (root) => {
     if (root === null) return;
 
     if (levels.length === levelNum) {
-      levels[levelNum] = [root.val];
+      levels[[levelNum]] = [root.val];
     } else {
       levels[levelNum].push(root.val);
     }
