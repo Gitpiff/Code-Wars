@@ -28,7 +28,39 @@ c.right = f;
 // 4   -2     1
 
 const levelAverages = (root) => {
+    //create a levels array to store each level with it's elements
+    const levels = [];
+    //call the level helper function
+    fillLevels(root, levels, 0);
+    //loop through the levels array, then call the average helper function, and push the result into the averages array
+    return levels.map(getAverage)
 
 }
+//helper function that will find us every level in the tree
+const fillLevels = (root, levels, levelNum) => {
+    //base case
+    if (root === null) return;
+
+    if (levels.length === levelNum) {
+        levels.push([root.val])
+    } else {
+        levels[levelNum].push(root.val);
+    }
+    //add one to the child nodes -example; if parent node is at level 0, it's child would be at level 1-
+    fillLevels(root.left, levels, levelNum + 1);
+    fillLevels(root.right, levels, levelNum + 1);
+}
+
+//helper function to find the average
+const getAverage = (array) => {
+    let sum = 0;
+
+    for (let num of array) {
+        sum += num;
+    }
+
+    return sum / array.length;
+}
+
 
 console.log(levelAverages(a))
