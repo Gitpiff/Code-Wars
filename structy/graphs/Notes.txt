@@ -1,0 +1,9 @@
+A graph is a collection of nodes -"circles" with data inside of them- and edges -connections between a pair of nodes-
+-Directed Graph has arrowheads on the edges pointing at certain direction or flow, we can only move in the direction
+ of the edges, think of it as a one way street.
+-Undirected Graph has no directionality to it, so we can move freely between nodes, think of it as a two way street.
+-Neighbor nodes is any node accesible through an edge obeying the direction of the edge.
+-Adjancency list is a preffered way to represent graph information, typically hash maps are used, in JS objects.
+    -Use constant time that has a key-value pair mapping
+-Depth First Traversal uses a stack FILO
+-Breadth Frist Traversal uses a queue FIFO
