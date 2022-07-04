@@ -33,13 +33,12 @@ const explore = (graph, current, visited) => {
     return true;
 };
 
-connectedComponentsCount({
+console.log(connectedComponentsCount({
     1: [2],
     2: [1,8],
     6: [7],
     9: [8],
     7: [6, 8],
     8: [9, 7, 2]
-  });
+  }));
 
-console.log(connectedComponentsCount())
