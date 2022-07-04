@@ -31,7 +31,7 @@ const explore = (graph, current, visited) => {
     }
     //it wont return true until ALL the neighbors have been visited
     return true;
-}
+};
 
 connectedComponentsCount({
     1: [2],
@@ -42,4 +42,4 @@ connectedComponentsCount({
     8: [9, 7, 2]
   });
 
-// console.log(connectedComponentsCount())
+console.log(connectedComponentsCount())
