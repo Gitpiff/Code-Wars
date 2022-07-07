@@ -3,11 +3,34 @@
 const shortestPath = (edges, nodeA, nodeB) => {
     //convert edge list into adjacency list by using a helper function
     const graph = buildGraph(edges);
+    //create a set to prevent infinite loops, since we are starting the queue at nodeA, we must start the set at the same node to mark it as visited
+    const visited = new Set([nodeA])
     //work the breadth first logic
     //start by declaring your queue, not only store the nodes, but also the distance from nodeA to nodeB
-    const queue = [ ]
-    
+    //we initialize the queue at nodeA, and the num 0, because nodeA is 0 edges away from itself, that 0 will be incremented as soon as we start finding edges
+    const queue = [ [nodeA, 0]];
 
+    //breadth first, remove always from the top FIFO
+    while (queue.length > 0) {
+        //deconstruct, get the node and the distance from the shifted value
+        const [node, distance] = queue.shift();
+
+        //check the node that was just removed from the queue
+        //if nodeA === nodeB then the distance is 0
+        if(node === nodeB) return distance;
+        //iterate through the graph at the current node
+        for (let neighbor of graph[node]) {
+            //only add the neighbor to the queue if it has not been visited
+            if(!visited.has(neighbor)) {
+                //if it hasn't been "visited", add it to the set
+                visited.add(neighbor);
+                //add the neighbors into the queue, also add one to the distance, sice we add one node, there must be an edge to connect it with it's neighbor
+                queue.push( [neighbor, distance + 1] );
+            }
+        }
+    }
+    
+    return -1;
 }
 
 //helper function to build graph
@@ -22,9 +45,19 @@ const buildGraph = (edges) => {
         if (!(a in graph)) graph[a] = [];
         if (!(b in graph)) graph[b] = [];
         //we know a must be a neighbor of b, so we can push them into each other's arrays in the graph object
-        graph[a].push(graph[b]);
-        graph[b].push(graph[a]);
+        graph[a].push(b);
+        graph[b].push(a);
     }
 
     return graph;
 }
+
+const edges = [
+    ['w', 'x'],
+    ['x', 'y'],
+    ['z', 'y'],
+    ['z', 'v'],
+    ['w', 'v']
+  ];
+
+console.log(shortestPath(edges, 'w', 'z'))
