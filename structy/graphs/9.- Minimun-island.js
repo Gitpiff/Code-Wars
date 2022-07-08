@@ -1,6 +1,11 @@
 //Write a function, "minimumIsland", that takes in a grid containing Ws and Ls. W represents water, L represents land. The function should return the size of the smalles island.  An island is a vertically or horizontally connected region of land. You may assume that the grid contains at least one island.
 
 const minimumIsland = (grid) => {
+  //nested loops + depth first traversal
+  //iterate through all the rows and columns
+  for (let r = 0; r < grid.length; r ++) {
+    
+  }
 
 }
 
