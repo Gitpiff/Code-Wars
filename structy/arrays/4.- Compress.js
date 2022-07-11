@@ -35,4 +35,25 @@ const compress = (s) => {
     return result.join("")
 };
 
+// const compress = (s) => {
+//     let result = [];
+//     //two pointers
+//     let i = 0;
+//     let j = 0;
+//     while (j <= s.length) {
+//       //if a streak is found, move j to the right to see if it continues
+//       if (s[i] === s[j]) {
+//         j += 1;
+//       } else {
+//         //get the count bu subtracting j from i
+//         num = j - i;
+//         //base case, if num === 1
+//         if (num === 1) {
+//           result.push(s[i])
+//         } else {
+//         result.push(num , s[i]);
+//         }
+//         i = j;
+//       };
+
 console.log(compress("aaabbbyttggnn"))
