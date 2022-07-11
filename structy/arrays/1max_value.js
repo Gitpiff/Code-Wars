@@ -4,20 +4,32 @@
 
 // You can assume that the array is non-empty.
 
+// const maxValue = (nums) => {
+//     //create a variable that will store the maximum value of the array, since we don't know if the array will contain or will be composed of only negative numbers, we should start iterating from "-Infinity" rather than 0, "-Infinity" guarantees to be less than any number
+//     let maximum = -Infinity
+
+//     //iterate through the array, since it's an array we can use a "for of" loop that iterates through every value in the array
+
+//     for(let num of nums){
+//         if(num > maximum) {
+//             maximum = num
+//         }
+//     }
+
+//     return maximum
+
+//   };
+
 const maxValue = (nums) => {
-    //create a variable that will store the maximum value of the array, since we don't know if the array will contain or will be composed of only negative numbers, we should start iterating from "-Infinity" rather than 0, "-Infinity" guarantees to be less than any number
-    let maximum = -Infinity
+    //initialize a max var to -infinity
+    let max = -Infinity;
+    for (let num of nums) {
+      if (num > max) {
+        max = num;
+      }
+    };
 
-    //iterate through the array, since it's an array we can use a "for of" loop that iterates through every value in the array
-
-    for(let num of nums){
-        if(num > maximum) {
-            maximum = num
-        }
-    }
-
-    return maximum
-
+    return max;
   };
 
 
