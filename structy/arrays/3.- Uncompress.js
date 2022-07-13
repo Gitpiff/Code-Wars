@@ -32,39 +32,68 @@
 //     return result.join("")
 // }
 
+// const uncompress = (s) => {
+//     //declare a result var
+//     let result = [];
+//     //declare a var with the numeric chars
+//     const nums = "0123456789";
+//     //declare two pointers, i & j, start them at the same index, i will look for nums, j for letters
+//     let i = 0;
+//     let j = 0;
+//     //iterate using a while loop
+
+//     while (j < s.length) {
+//       //if j is a number increment j to check if the next char is a number as well
+//       if (nums.includes(s[j])) {
+//         j += 1;
+//       }
+//       //when j is not a num, isolate the value to get just the number
+//       else {
+//         //slice i up to but not incluuiding j, Make it a Number so it only stores in the variable the number value
+//         const num = Number(s.slice(i, j));
+//         console.log(num);
+//         //use a for loop to "uncompress" the number of times the letter repeats
+//         for (let count = 0; count < num; count += 1) {
+//           //add the letters to the result var
+//           result.push(s[j]);
+//         }
+//         //bring i up to speed
+//         j += 1; //move j one index to the right
+//         i = j;  //move i to the same index as j so they can start iterating together
+//       }
+//     }
+
+//     return result.join("");
+//   };
+
+
+
+
 const uncompress = (s) => {
-    //declare a result var
-    let result = [];
-    //declare a var with the numeric chars
-    const nums = "0123456789";
-    //declare two pointers, i & j, start them at the same index, i will look for nums, j for letters
+    const result = [];
+    const nums = '0123456789';
     let i = 0;
     let j = 0;
-    //iterate using a while loop
 
     while (j < s.length) {
-      //if j is a number increment j to check if the next char is a number as well
-      if (nums.includes(s[j])) {
-        j += 1;
-      }
-      //when j is not a num, isolate the value to get just the number
-      else {
-        //slice i up to but not incluuiding j
-        const num = Number(s.slice(i, j));
-        //use a for loop to "uncompress" the number of times the letter repeats
-        for (let count = 0; count < num; count += 1) {
-          //add the letters to the result var
-          result.push(s[j]);
+        //check if j is a num
+        if (nums.includes(s[j])) {
+            j += 1;
+        } else {
+            const num = Number(s.slice(i, j));
+            //iterate and push the letter num number of times
+            for (let count = 0; count < num; count += 1) {
+                result.push(s[j]);
+            }
+            j += 1;
+            i = j;
         }
-        //bring i up to speed
-        j += 1; //move j one index to the right
-        i = j;  //move i to the same index as j so they can start iterating together
-      }
+
     }
 
-    return result.join("");
-  };
+    return result.join("")
+}
 
-  
+
 
 console.log(uncompress("20c35a11t"))
