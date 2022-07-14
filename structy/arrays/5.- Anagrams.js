@@ -49,33 +49,33 @@
 
 const anagrams = (s1, s2) => {
    //store s1 in a hash map
-   let count = {};
-
+    let letters = {};
    //add to the hash map
-   for (let char of s1) {
-    if (!(char in count)) {
-        count[char] = 0;
-    }
-    count[char] += 1
-   }
+    for (let char of s1) {
+        if (!(char in letters)) {
+            letters[char] = 0;
+        }
+        letters[char] += 1;
+    };
 
    //sub from the map
-   for (let char of s2) {
-    if(!(char in count)){
-        return false;
-    }
-   }
+    for (let char of s2) {
+        if (char in letters) {
+            letters[char] -= 1;
+        } else {
+            return false;
+        }
+    };
 
    //check for 0
-   for (let char of count) {
-    if (char !== 0) {
-        return false;
-    }
-   }
+    for (let num in letters) {
+        if (letters[num] !== 0) {
+            return false;
+        }
+    };
 
-
-   return true;
+    return true;
 };
 
 
-console.log(anagrams("xx", "xy"))
+console.log(anagrams("xy", "xy"))
