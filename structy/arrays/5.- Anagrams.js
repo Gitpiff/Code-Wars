@@ -48,23 +48,33 @@
 
 
 const anagrams = (s1, s2) => {
-    let letters = {};
+   //store s1 in a hash map
+   let count = {};
 
-    for (let char of s1) {
-      if (!(char in letters)) {
-        letters[char] = 0;
-      }
-      letters[char] += 1
+   //add to the hash map
+   for (let char of s1) {
+    if (!(char in count)) {
+        count[char] = 0;
     }
+    count[char] += 1
+   }
 
-    for (let char of s2) {
-      if (!(char in letters)) {
-        letters[char] = 0;
-      }
-      letters[char] += 1;
+   //sub from the map
+   for (let char of s2) {
+    if(!(char in count)){
+        return false;
     }
+   }
 
-    return letters;
+   //check for 0
+   for (let char of count) {
+    if (char !== 0) {
+        return false;
+    }
+   }
+
+
+   return true;
 };
 
 
