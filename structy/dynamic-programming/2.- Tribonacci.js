@@ -21,18 +21,26 @@
 //Space: O(n)
 
 //memoized (pass)
-const tribonacci = (n, memo = {}) => {
-  if (n in memo) return memo[n];
+// const tribonacci = (n, memo = {}) => {
+//   if (n in memo) return memo[n];
 
-  if (n === 0 || n === 1) return 0;
+//   if (n === 0 || n === 1) return 0;
 
-  if (n === 2) return 1;
+//   if (n === 2) return 1;
 
-  memo[n] = tribonacci(n - 1, memo) + tribonacci(n - 2, memo) + tribonacci(n - 3, memo);
-  return memo[n];
-};
+//   memo[n] = tribonacci(n - 1, memo) + tribonacci(n - 2, memo) + tribonacci(n - 3, memo);
+//   return memo[n];
+// };
 
 // Time: O(n)
 // Space: O(n)
 
-console.log(tribonacci(37));
+// console.log(tribonacci(37));
+
+const coinFlip = () => {
+  let flip = Math.ceil(Math.random * 2)
+
+  return flip === 2 ? "Heads" : "Tails";
+}
+
+console.log(coinFlip());
